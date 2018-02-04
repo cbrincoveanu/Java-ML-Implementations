@@ -1,2 +1,6 @@
 # Java-ML-Implementations
-Implemented a few basic machine learning algorithms.
+Implementation of a few basic machine learning algorithms.
+
+* Neural Network
+* Decision Tree
+* Simple Linear Regression
