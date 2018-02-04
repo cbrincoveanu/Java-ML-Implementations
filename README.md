@@ -1,2 +1,2 @@
 # Java-ML-Implementations
-getting a better understanding of a few machine learning algorithms
+Implemented a few basic machine learning algorithms.
