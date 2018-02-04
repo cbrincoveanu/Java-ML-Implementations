@@ -69,4 +69,14 @@ public class LinearRegression {
         double p = 1000;
         System.out.println("y = " + Math.round(b0*p)/p + " + " + Math.round(b1*p)/p + " * x, MSE = " + Math.round(meanSquaredError*p)/p + ", R² = " + Math.round(rSquared*p)/p + ", R²_adj = " + Math.round(adjustedRSquared*p)/p);
     }
+
+    public static void main(String[] args) {
+        LinearRegression linearRegression = new LinearRegression();
+        linearRegression.addPoint(0,0);
+        linearRegression.addPoint(1,1);
+
+        linearRegression.addPoint(2,2.2);
+        System.out.println(linearRegression.estimateY(3));
+        linearRegression.summary();
+    }
 }
