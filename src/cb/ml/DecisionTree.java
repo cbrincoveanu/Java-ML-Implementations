@@ -40,11 +40,13 @@ public class DecisionTree {
                             right.add(entry.getValue());
                         }
                     }
-                    double informationGain = entries.size()*currentEntropy - left.size()*getEntropy(left) - right.size()*getEntropy(right);
-                    if (informationGain > bestInformationGain) {
-                        bestInformationGain = informationGain;
-                        bestIndex = i;
-                        bestThreshold = threshold;
+                    if (!left.isEmpty() && !right.isEmpty()) {
+                        double informationGain = entries.size()*currentEntropy - left.size()*getEntropy(left) - right.size()*getEntropy(right);
+                        if (informationGain > bestInformationGain) {
+                            bestInformationGain = informationGain;
+                            bestIndex = i;
+                            bestThreshold = threshold;
+                        }
                     }
                 }
             }
@@ -80,10 +82,8 @@ public class DecisionTree {
             }
             return ret;
         } else if (features[featureIndex] < threshold) {
-            System.out.println("f["+featureIndex+"] = "+ features[featureIndex]+ " < " +threshold);
             return left.getEntries(features);
         } else {
-            System.out.println("f["+featureIndex+"] = "+ features[featureIndex]+ " > " +threshold);
             return right.getEntries(features);
         }
     }
