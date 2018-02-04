@@ -43,7 +43,8 @@ public class Main {
         for (int i = 0; i < 100; i++) {
             test.add(data.remove((int)(Math.random()*data.size())));
         }
-        DecisionTree dt = new DecisionTree(data, 1, 5);
+        System.out.println("Training decision tree...");
+        DecisionTree dt = new DecisionTree(data, 3, 5);
         int accuracy = 0;
         for (int i = 0; i < 100; i++) {
             Pair<double[],double[]> sample = test.get(i);
@@ -65,6 +66,7 @@ public class Main {
         for (Pair<double[],double[]> sample : data) {
             neuralNetwork.addData(sample.getKey(), sample.getValue());
         }
+        System.out.println("Training neural network...");
         neuralNetwork.train(5000);
         for (int i = 0; i < 100; i++) {
             Pair<double[],double[]> sample = test.get(i);
